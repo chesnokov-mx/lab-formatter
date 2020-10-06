@@ -1,0 +1,18 @@
+image: Visual Studio 2017
+
+platform:
+- x86
+
+configuration:
+  - Debug
+
+install:
+  - git init
+  - git submodule update --init --recursive
+
+before_build:
+    - cmake -G "Visual Studio 15 2017 Win64" .
+
+build_script:
+- cmake -H. -B_build
+- cmake --build _build
